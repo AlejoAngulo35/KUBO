@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: kubo-api
+    runtime: node
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: DATABASE_URL   # cadena de conexión de Neon
+        sync: false
+      - key: FRONTEND_URL   # URL del frontend en Render (para CORS, sin "/" final)
+        sync: false
+
+  - type: web
+    name: kubo-frontend
+    runtime: static
+    rootDir: frontend
+    buildCommand: echo "window.API_URL='$API_URL';" > config.js
+    staticPublishPath: .
+    envVars:
+      - key: API_URL        # URL del backend en Render
+        sync: false

@@ -1,0 +1,4 @@
+[build]
+  publish = "."
+  # Genera config.js con la URL del backend (variable VITE_API_URL cargada en el panel de Netlify)
+  command = "echo \"window.API_URL='$VITE_API_URL';\" > config.js"

@@ -1,0 +1,12 @@
+{
+  "name": "kubo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "KUBO - gestor de finanzas personales (backend en /backend, frontend estático en /frontend)",
+  "scripts": {
+    "postinstall": "npm install --prefix backend",
+    "start": "npm start --prefix backend",
+    "test": "npm test --prefix backend"
+  },
+  "engines": { "node": ">=20" }
+}
